@@ -1,0 +1,42 @@
+name: Terraform Validator
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/terraform.yml
+      - .github/actions/terraform-bash/action.yaml
+      - .github/actions/terraform-powershell/action.yml
+      - systems.auto.pkrvars.hcl
+
+permissions:
+  contents: read
+
+concurrency:
+  group: terraform-${{ github.event.repository.name }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  packer:
+    name: Packer
+    runs-on:
+      - self-hosted
+      - X64
+    timeout-minutes: 120
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Run Linux composite action
+        if: ${{ runner.os == 'Linux' }}
+        uses: ./.github/actions/terraform-bash
+
+      - name: Run Windows composite action
+        if: ${{ runner.os == 'Windows' }}
+        uses: ./.github/actions/terraform-powershell
