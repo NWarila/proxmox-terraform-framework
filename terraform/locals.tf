@@ -10,26 +10,26 @@ locals {
     for system in var.all_systems : system.name => {
 
       /* Required Parameters */
-      name                = system.name
-      node_name           = system.node_name
-      pool_id             = system.pool_id
-      template            = system.template
-      vm_id               = system.vm_id
+      name      = system.name
+      node_name = system.node_name
+      pool_id   = system.pool_id
+      template  = system.template
+      vm_id     = system.vm_id
 
       /* Optional Parameters */
-      acpi                = system.acpi
-      agent               = system.agent
-      amd_sev             = system.amd_sev
-      audio_device        = system.audio_device
-      bios                = system.bios
-      boot_order          = system.boot_order
-      cdrom               = system.cdrom
-      clone               = {
-      # datastore_id = <! Note No Way To Pull This From Template !>
-        full         = try(system.clone.full, null)
-        node_name    = local.vm_templates[system.template]["node_name"]
-        retries      = try(system.clone.retries, null)
-        vm_id        = local.vm_templates[system.template]["vm_id"]
+      acpi         = system.acpi
+      agent        = system.agent
+      amd_sev      = system.amd_sev
+      audio_device = system.audio_device
+      bios         = system.bios
+      boot_order   = system.boot_order
+      cdrom        = system.cdrom
+      clone = {
+        # datastore_id = <! Note No Way To Pull This From Template !>
+        full      = try(system.clone.full, null)
+        node_name = local.vm_templates[system.template]["node_name"]
+        retries   = try(system.clone.retries, null)
+        vm_id     = local.vm_templates[system.template]["vm_id"]
       }
       cpu                 = system.cpu
       description         = system.description

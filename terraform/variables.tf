@@ -31,15 +31,15 @@ variable "all_systems" {
     object({
 
       /* Required Parameters */
-      name                = string
-      node_name           = string
-      pool_id             = string
-      template            = string
-      vm_id               = number
+      name      = string
+      node_name = string
+      pool_id   = string
+      template  = string
+      vm_id     = number
 
       /*  Optional Parameters */
-      acpi                = optional(bool, true)
-      agent               = optional(
+      acpi = optional(bool, true)
+      agent = optional(
         object({
           enabled = optional(bool, false)
           timeout = optional(string, "15m")
@@ -47,7 +47,7 @@ variable "all_systems" {
           type    = optional(string, "virtio")
         })
       )
-    amd_sev             = optional(
+      amd_sev = optional(
         object({
           allow_smt      = optional(bool)
           kernel_hashes  = optional(bool)
@@ -56,45 +56,45 @@ variable "all_systems" {
           type           = optional(string)
         })
       )
-      audio_device        = optional(
+      audio_device = optional(
         object({
           device  = optional(string, "intel-hda")
           driver  = optional(string, "spice")
           enabled = optional(bool, true)
         })
       )
-      bios                = optional(string, "ovmf")
-      boot_order          = optional(list(string), [])
-      cdrom               = optional(
+      bios       = optional(string, "ovmf")
+      boot_order = optional(list(string), [])
+      cdrom = optional(
         object({
           file_id   = optional(string, "cdrom")
           interface = optional(string, "ide3")
         })
       )
-      clone               = optional(
+      clone = optional(
         object({
-          full      = optional(bool)
-        # node_name = <! Note: Pulled Automatically From Template !>
-        # vm_id     = <! Note: Pulled Automatically From Template !>
-          retries   = optional(number)
+          full = optional(bool)
+          # node_name = <! Note: Pulled Automatically From Template !>
+          # vm_id     = <! Note: Pulled Automatically From Template !>
+          retries = optional(number)
         })
       )
-      cpu                 = optional(
+      cpu = optional(
         object({
-          affinity     = optional(string)
-        # architecture = <! Note: Pulled Automatically From Template !>
-          cores        = optional(number, 1)
-          flags        = optional(list(string))
-          hotplugged   = optional(number, 0)
-          limit        = optional(number, 0)
-          numa         = optional(bool, false)
-          sockets      = optional(number, 1)
-          type         = optional(string, "host")
-          units        = optional(number, 1024)
+          affinity = optional(string)
+          # architecture = <! Note: Pulled Automatically From Template !>
+          cores      = optional(number, 1)
+          flags      = optional(list(string))
+          hotplugged = optional(number, 0)
+          limit      = optional(number, 0)
+          numa       = optional(bool, false)
+          sockets    = optional(number, 1)
+          type       = optional(string, "host")
+          units      = optional(number, 1024)
         })
       )
-      description         = optional(string)
-      disks               = optional(
+      description = optional(string)
+      disks = optional(
         list(
           object({
             aio          = optional(string, "io_uring")
@@ -103,41 +103,41 @@ variable "all_systems" {
             datastore_id = optional(string, "nvme-pool")
             discard      = optional(string, "ignore")
             file_format  = optional(string, "qcow2")
-          # file_id     = optional(string)
-          # import_from = optional(string)
-          # interface   = <! Note: Calculated automatically !>
-            iothread     = optional(bool, false)
-            replicate    = optional(bool, true)
-            serial       = optional(string)
-            size         = optional(number, 8)
-            speed        = optional(number)
-            ssd          = optional(bool, false)
-          # path_in_datastore = optional(string)
+            # file_id     = optional(string)
+            # import_from = optional(string)
+            # interface   = <! Note: Calculated automatically !>
+            iothread  = optional(bool, false)
+            replicate = optional(bool, true)
+            serial    = optional(string)
+            size      = optional(number, 8)
+            speed     = optional(number)
+            ssd       = optional(bool, false)
+            # path_in_datastore = optional(string)
           })
         )
       )
-      efi_disk            = optional(
+      efi_disk = optional(
         object({
           datastore_id = optional(string, "nvme-pool")
           file_format  = optional(string, "raw")
           type         = optional(string, "2m")
         })
       )
-    hostpcis              = optional(
-      list(
-        object({
-          device   = number
-          id       = optional(number)
-          mapping  = optional(number)
-          mdev     = optional(number)
-          pcie     = optional(string)
-          rombar   = optional(bool)
-          rom_file = optional(string)
-          xvga     = optional(bool)
-        })
+      hostpcis = optional(
+        list(
+          object({
+            device   = number
+            id       = optional(number)
+            mapping  = optional(number)
+            mdev     = optional(number)
+            pcie     = optional(string)
+            rombar   = optional(bool)
+            rom_file = optional(string)
+            xvga     = optional(bool)
+          })
+        )
       )
-    )
-      initialization      = optional(
+      initialization = optional(
         object({
           datastore_id = optional(string, "nvme-pool")
           dns          = optional(string)
@@ -153,10 +153,10 @@ variable "all_systems" {
           )
         })
       )
-      keyboard_layout     = optional(string, "en-us")
-      kvm_arguments       = optional(string)
-      machine             = optional(string, "pc")
-      memory              = optional(
+      keyboard_layout = optional(string, "en-us")
+      kvm_arguments   = optional(string)
+      machine         = optional(string, "pc")
+      memory = optional(
         object({
           dedicated      = optional(number, 512)
           floating       = optional(number, 0)
@@ -165,9 +165,9 @@ variable "all_systems" {
           shared         = optional(number, 0)
         })
       )
-      migrate             = optional(bool, false)
-    # name                = <! Note: See 'Required Parameters' Section !>
-      network_devices     = optional(
+      migrate = optional(bool, false)
+      # name                = <! Note: See 'Required Parameters' Section !>
+      network_devices = optional(
         list(
           object({
             bridge       = optional(string, "vmbr0")
@@ -186,8 +186,8 @@ variable "all_systems" {
           })
         )
       )
-    # node_name           = <! Note: See 'Required Parameters' Section !>
-      numa                = optional(
+      # node_name           = <! Note: See 'Required Parameters' Section !>
+      numa = optional(
         object({
           cpus      = string
           device    = string
@@ -201,24 +201,24 @@ variable "all_systems" {
       protection          = optional(bool, false)
       reboot              = optional(bool, false)
       reboot_after_update = optional(bool, true)
-      rng                 = optional(
+      rng = optional(
         object({
           max_bytes = optional(number, 1024)
           period    = optional(number, 1000)
           source    = optional(string, "/dev/urandom")
         })
       )
-      scsi_hardware       = optional(string, "virtio-scsi-pci")
-      serial_devices      = optional(
+      scsi_hardware = optional(string, "virtio-scsi-pci")
+      serial_devices = optional(
         list(
           object({
             device = optional(string, "socket")
           })
         )
       )
-    # smbios = <! Note: Pulled Automatically From Template !>
-      started             = optional(bool, true)
-      startup             = optional(
+      # smbios = <! Note: Pulled Automatically From Template !>
+      started = optional(bool, true)
+      startup = optional(
         object({
           order      = optional(number, 1)
           up_delay   = optional(number, 5)
@@ -235,13 +235,13 @@ variable "all_systems" {
       timeout_shutdown_vm = optional(number, 1800)
       timeout_start_vm    = optional(number, 1800)
       timeout_stop_vm     = optional(number, 300)
-      tpm_state           = optional(
+      tpm_state = optional(
         object({
           datastore_id = optional(string, "nvme-pool")
           version      = optional(string, "v2.0")
         })
       )
-      usbs                = optional(
+      usbs = optional(
         list(
           object({
             host    = optional(string, "spice")
@@ -250,14 +250,14 @@ variable "all_systems" {
           })
         )
       )
-      vga                 = optional(
+      vga = optional(
         object({
           memory    = optional(number, 16)
           type      = optional(string, "std")
           clipboard = optional(string, "vnc")
         })
       )
-      virtiofs            = optional(
+      virtiofs = optional(
         object({
           cache        = optional(string)
           direct_io    = optional(bool)
@@ -265,7 +265,7 @@ variable "all_systems" {
           expose_xattr = optional(bool)
         })
       )
-      watchdog            = optional(
+      watchdog = optional(
         object({
           action  = optional(string, "none")
           enabled = optional(bool, false)
