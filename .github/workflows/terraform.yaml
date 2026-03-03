@@ -4,12 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - PROD
     paths:
-      - .github/workflows/terraform.yml
-      - .github/actions/terraform-bash/action.yaml
-      - .github/actions/terraform-powershell/action.yml
-      - systems.auto.pkrvars.hcl
+      - .github/workflows/terraform.yaml
+      - terraform/*.tf
 
 permissions:
   contents: read
