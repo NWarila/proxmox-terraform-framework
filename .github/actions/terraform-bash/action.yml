@@ -6,7 +6,7 @@ runs:
   steps:
     - name: Check Terraform CLI
       shell: bash
-      working-directory: ${{ github.workspace }}
+      working-directory: "${{ github.workspace }}"
       run: |
         set -euo pipefail
 
@@ -15,14 +15,14 @@ runs:
 
     - name: Check Terraform formatting
       shell: bash
-      working-directory: ${{ github.workspace }}
+      working-directory: "${{ github.workspace }}/terraform"
       run: |
         set -euo pipefail
         terraform fmt -check -diff -recursive -no-color .
 
     - name: Initialize and validate Terraform directories
       shell: bash
-      working-directory: ${{ github.workspace }}
+      working-directory: "${{ github.workspace }}/terraform"
       run: |
         terraform init -backend=false -input=false -no-color
         terraform validate -no-color
