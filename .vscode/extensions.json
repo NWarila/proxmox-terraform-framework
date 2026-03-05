@@ -1,15 +1,18 @@
 {
+  // Extensions That Provide Substancial When Working With The Repo
   "recommendations": [
     "HashiCorp.terraform",
     "HashiCorp.HCL",
     "redhat.vscode-yaml",
-    "timonwong.shellcheck",
-    "GitHub.vscode-github-actions",
-    "ms-vscode-remote.remote-containers",
-    "ms-azuretools.vscode-containers",
-    "ms-azuretools.vscode-docker",
+    "zokugun.explicit-folding",
+
+    // Add language support for '.gitignore' files.
+    "codezombiech.gitignore"
   ],
+  
+  // Extensions That Cause Problems With The Repo
   "unwantedRecommendations": [
     "mauve.terraform"
   ]
+
 }

@@ -1,0 +1,79 @@
+#region ------ [ Header ] -------------------------------------------------------------------- #
+#  /$$   /$$ /$$      /$$                     /$$ /$$                                          #
+# | $$$ | $$| $$  /$ | $$                    |__/| $$                                          #
+# | $$$$| $$| $$ /$$$| $$  /$$$$$$   /$$$$$$  /$$| $$  /$$$$$$                                 #
+# | $$ $$ $$| $$/$$ $$ $$ |____  $$ /$$__  $$| $$| $$ |____  $$                                #
+# | $$  $$$$| $$$$_  $$$$  /$$$$$$$| $$  \__/| $$| $$  /$$$$$$$                                #
+# | $$\  $$$| $$$/ \  $$$ /$$__  $$| $$      | $$| $$ /$$__  $$                                #
+# | $$ \  $$| $$/   \  $$|  $$$$$$$| $$      | $$| $$|  $$$$$$$                                #
+# |__/  \__/|__/     \__/ \_______/|__/      |__/|__/ \_______/                                #
+# --- [ DESCRIPTION ] ------------------------------------------------------------------------ #
+#%   A '.gitignore' file specifies intentionally untracked files that Git should ignore       %#
+#%   It helps ensure sensitive or irrelevant files (state, caches, etc.) are not committed.   %#
+#%                                                                                            %#
+#% ADDITIONAL INFORMATION                                                                     %#
+#%   Official Git Documentation: https://git-scm.com/docs/gitignore                           %#
+#%                                                                                            %#
+#endregion --- [ Header ] -------------------------------------------------------------------- #
+
+# By default, ignore everything.
+**
+
+# Include GIT core files.
+!.gitattributes
+!.gitignore
+!.editorconfig
+!.pre-commit.config.yaml
+!CODE_OF_CONDUCT.md
+!CONTRIBUTING.md
+!LICENSE
+!README.md
+!SECURITY.md
+!SUPPORT.md
+
+# Include Linter Files
+!.config/
+!.config/.markdownlint.json
+!.config/.terraform-docs.yml
+!.config/.tflint.hcl
+!.config/.yamllint.yaml
+
+# Include VSCode DevContainer File(s)
+!.devcontainer/
+!.devcontainer/devcontainer.json
+!.devcontainer/Dockerfile
+
+# Include Github Actions workflows.
+!.github
+!.github/actions/
+!.github/actions/terraform-bash/
+!.github/actions/terraform-bash/action.yaml
+!.github/actions/terraform-powershell/
+!.github/actions/terraform-powershell/action.yaml
+!.github/CODEOWNERS
+!.github/FUNDING.yml
+!.github/workflows/
+!.github/workflows/packer.yml
+
+# Include VSCode File(s)
+!.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+
+# Include Example Files
+!examples/
+!examples/.gitkeep
+
+# Include Core Terraform files.
+!terraform/
+!terraform/.gitkeep
+!terraform/backend.tf
+!terraform/data.tf
+!terraform/locals.tf
+!terraform/outputs.tf
+!terraform/providers.tf
+!terraform/resources.tf
+!terraform/variables.tf
+!terraform/versions.tf
