@@ -17,8 +17,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  packer:
-    name: Packer
+  terraform:
+    name: Terraform
     runs-on:
       - self-hosted
       - X64

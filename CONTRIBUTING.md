@@ -14,7 +14,7 @@ Thanks for considering a contribution! This project is small, but contributions 
 1. **Fork** the repository and create a branch for your changes:
    `git checkout -b my-change`
 2. Make your edits.
-3. Run any relevant checks (for example, `packer validate` or your usual test command, if applicable).
+3. Run any relevant checks (for example, `pre-commit run --all-files` or `terraform validate`).
 4. Open a **pull request** against the main branch and describe what you changed and why.
 
 ## Reporting bugs
@@ -25,7 +25,7 @@ Please open an issue and include, when possible:
 - What you expected to happen
 - What actually happened
 - Steps to reproduce
-- Your environment (OS, relevant tool versions like Packer)
+- Your environment (OS, relevant tool versions like Terraform and TFLint)
 
 Screenshots or logs are helpful if something fails unexpectedly.
 

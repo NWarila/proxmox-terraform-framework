@@ -30,4 +30,4 @@ runs:
       working-directory: ${{ github.workspace }}
       run: |
         terraform init -backend=false -input=false -no-color
-        terraform validate -no-color'
+        terraform validate -no-color
